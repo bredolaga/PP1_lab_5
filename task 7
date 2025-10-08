@@ -4,21 +4,24 @@ using namespace std;
 int main() {
     int a;
     cin >> a;
-    int arrA[a][a];
+    string arrA[a][a];
 
     for (int i = 0;i < a;i++) {
         for (int r = 0;r < a;r++) {
-            cin >> arrA[i][r];
+            if (i >= r) {
+                arrA[i][r] = "[*]";
+            }
+            else if (i < r) {
+                arrA[i][r] = " ";
+            }
         }
     }
 
-    int sum = 0;
-    int b = a - 1;
-
     for (int i = 0;i < a;i++) {
-            sum += arrA[i][b];
-        b--;
+        for (int r = 0;r < a;r++) {
+            cout << arrA[i][r];
         }
-    cout << sum;
+        cout << endl;
+    }
     return 0;
 }
